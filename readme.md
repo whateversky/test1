@@ -1,5 +1,5 @@
 # 启动
-* 直接运行StartTest.class即可
+* 直接运行StartTest.java即可
 
 # 测试
 * 因为不仅仅需要测试Bean功能，还需测试整个流程，所以使用http调用测试
