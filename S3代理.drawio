@@ -1,0 +1,86 @@
+<mxfile host="Electron" modified="2025-01-14T11:16:29.083Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Ss1IP0qrV3hpKMcufMtT" version="24.1.0" type="device">
+  <diagram name="第 1 页" id="RWRvYitmz-0pX-2ko9HC">
+    <mxGraphModel dx="1434" dy="797" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-ihAgkykPV66nU5G_lt2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="60" width="270" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-1" value="sftp引擎" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-7" value="sftp引擎" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="60" width="540" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ATC52-hpSj-qVwCTe6t7-1" target="ATC52-hpSj-qVwCTe6t7-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ATC52-hpSj-qVwCTe6t7-7" target="ATC52-hpSj-qVwCTe6t7-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ATC52-hpSj-qVwCTe6t7-9" target="ATC52-hpSj-qVwCTe6t7-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ATC52-hpSj-qVwCTe6t7-2" target="ATC52-hpSj-qVwCTe6t7-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-3" value="s3" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1010" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-10" value="s3" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1010" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-2" value="b2bgw-&lt;span style=&quot;background-color: initial;&quot;&gt;s3-proxy流量代理&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="690" y="340" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-9" value="b2bgw-adapter-service逻辑中转，提供上传文件接口，下载文件接口给sftp引擎调用" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="690" y="470" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ATC52-hpSj-qVwCTe6t7-11" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;问题分析&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial; text-align: center;&quot;&gt;b2bgw-&lt;/span&gt;&lt;span style=&quot;background-color: initial; text-align: center;&quot;&gt;s3-proxy&lt;/span&gt;：估计需要找开源实现或者自己实现一套S3协议，SFTP引擎操作上会相对简单，只需要使用S3 SDK即可，真能实现的话，能直接替换minio，减少风险组件&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;text-align: center; background-color: initial;&quot;&gt;b2bgw-adapter-service：&lt;/span&gt;简单，上传只需要携带参数和文件二进制到接口，然后通过S3 SDK直接将文件流中转到S3服务，下载同理，直接通过S3 SDK从文件中获取文件流，然后中转文件流到客户端进行下载（不需要落地，性能也足够），操作上会复杂点，SFTP引擎需要写上传文件下载文件代码，但实际上复杂不了多少&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;开墙问题：&lt;/div&gt;&lt;div&gt;dmz-&amp;gt; edm endpoint （inside中转）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;dmz-&amp;gt; s3（inside中转，如果上述两种方案实现了，是否查看文件搜索文件还需要中转）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;dmz-&amp;gt; iam 获取（暂时不支持）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;dmz-&amp;gt; 动态token获取（已经开墙）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;dmz-&amp;gt; 告警（邮件，应用号，短信）（inside中转）&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;dmz-&amp;gt; 应用配置中心（已经开墙）&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="510" y="680" width="570" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-4" value="低密" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-5" value="中密" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-ihAgkykPV66nU5G_lt2-6" target="-ihAgkykPV66nU5G_lt2-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-6" value="haproxy/nginx" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="570" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ATC52-hpSj-qVwCTe6t7-7" target="-ihAgkykPV66nU5G_lt2-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-8" value="内网外边界应用" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="570" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-13" value="winscp等其他客户端/java sftp客户端" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="910" y="550" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="-ihAgkykPV66nU5G_lt2-14" target="-ihAgkykPV66nU5G_lt2-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-14" value="sftp引擎" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-15" value="edm" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-ihAgkykPV66nU5G_lt2-19" value="开通网络防火墙" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="760" y="200" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
